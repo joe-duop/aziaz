@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    <title>Albums</title>
+{% endblock title %}
+
+
+
+{% block content %}
+
+
+
+
+albums
+
+{% for alb in theAlbum %}
+<img src="{{alb.logo.url}}">
+<a href="{% url 'album_details' alb.id %}"><h3>{{alb.title}}</h3></a>
+artist : {{alb.artist}}
+<br>
+genre : {{alb.genre}}
+<br>
+date released :  {{alb.date_uploaded}}
+
+{% endfor %}
+
+
+
+{% endblock content %}

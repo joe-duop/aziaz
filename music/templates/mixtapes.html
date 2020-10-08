@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>Tracks</title>
+{% endblock title %}
+
+
+
+{% block content %}
+
+
+    <!-- music_area  -->
+    <div class="music_area music_gallery">
+        <div class="container">
+                <div class="row">
+                        <div class="col-xl-12">
+                            <div class="section_title text-center mb-65">
+                                <h3>Tracks</h3>
+                            </div>
+                        </div>
+                    </div>
+            {% for songs in mixtape %}
+            <div class="row align-items-center justify-content-center mb-20">
+                <div class="col-xl-10">
+                    <div class="row align-items-center">
+                                <div class="col-xl-11 col-md-11">
+                                    <div class="music_field">
+                                            <div class="thumb">
+                                                    <img src="{{songs.mixtape_logo.url}}" alt="">
+                                                </div>
+                                                <div class="audio_name">
+                                                    <div class="name">
+                                                        <h4>{{songs.mixtape_title}}</h4>
+                                                        <p>{{songs.mixtape_artist}}</p>
+                                                        <p>{{songs.mixtape_date_uploaded}}</p>
+                                                    </div>
+                                                        <audio preload="auto" controls>
+                                                                <source src="{{songs.mixtape_audiofile.url}}">
+                                                            </audio>
+                                                </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- music_area end  -->
+
+
+
+{% endblock content %}

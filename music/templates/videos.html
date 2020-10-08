@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Videos</title>
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+
+	<!-- youtube_video_area  -->
+    <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center mb-65">
+                    <h3>Videos</h3>
+                </div>
+            </div>
+        </div>
+    <div class="singer_video">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="image">
+                        <img src="{% static 'az/image2.jpg' %}" alt="">
+                        <div class="video_btn">
+                            <a class="popup-video" href="https://www.youtube.com/watch?v=Hzmp3z6deF8"><i class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+               
+    <div class="youtube_video_area">
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="section_title text-center mb-65">
+                    <h3></h3>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                {% for vids in videos %}
+                <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div class="single_video">
+                        <div class="thumb">
+                            <img src="{{vids.Video_logo.url}}" alt="">
+                        </div>
+                        <div class="hover_elements">
+                            <div class="video">
+                                    <a class="popup-video" href="{{vids.Video_url}}"> 
+                                            <i class="fa fa-play"></i>
+                                        </a>
+                            </div>
+
+                            <div class="hover_inner">
+                                <span>{{vids.Video_artist}}</span>
+                                <h3><a href="#">{{vids.Video_title}}</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- / youtube_video_area  -->
+
+
+
+
+{% endblock content %}

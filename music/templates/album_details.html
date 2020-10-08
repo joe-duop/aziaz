@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>albumsongs</title>
+{% endblock title %}
+
+
+
+
+
+{% block content %}
+
+    <!-- music_area  -->
+    <div class="music_area music_gallery">
+        <div class="container">
+                <div class="row">
+                        <div class="col-xl-12">
+                            <div class="section_title text-center mb-65">
+                                <h3>{{albsongs.title}}</h3>
+                            </div>
+                        </div>
+                    </div>
+            {% for song in albsongs.albumsong_set.all %}
+            <div class="row align-items-center justify-content-center mb-20">
+                <div class="col-xl-10">
+                    <div class="row align-items-center">
+                                <div class="col-xl-11 col-md-11">
+                                    <div class="music_field">
+                                            <div class="thumb">
+                                                    <img src="{{song.song_logo.url}}" alt="">
+                                                </div>
+                                                <div class="audio_name">
+                                                    <div class="name">
+                                                        <h4>{{song.song_title}}</h4>
+                                                        <p>{{song.song_artist}}</p>
+                                                    </div>
+                                                        <audio preload="auto" controls>
+                                                                <source src="{{song.song_audiofile.url}}">
+                                                            </audio>
+                                                </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- music_area end  -->
+
+
+{% endblock content %}
