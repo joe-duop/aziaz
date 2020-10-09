@@ -12,43 +12,23 @@
 
 
 	<!-- youtube_video_area  -->
+    <br>
     <div class="row">
-            <div class="col-xl-12">
-                <div class="section_title text-center mb-65">
-                    <h3>Videos</h3>
-                </div>
-            </div>
-        </div>
-    <div class="singer_video">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <div class="image">
-                        <img src="{% static 'az/image2.jpg' %}" alt="">
-                        <div class="video_btn">
-                            <a class="popup-video" href="https://www.youtube.com/watch?v=Hzmp3z6deF8"><i class="fa fa-play"></i></a>
-                        </div>
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-65">
+                        <h3>Videos</h3>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-
-
-               
+        
     <div class="youtube_video_area">
-
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center mb-65">
                     <h3></h3>
                 </div>
             </div>
-        </div>
-
-        
+        </div>  
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 {% for vids in videos %}
@@ -66,7 +46,7 @@
 
                             <div class="hover_inner">
                                 <span>{{vids.Video_artist}}</span>
-                                <h3><a href="#">{{vids.Video_title}}</a></h3>
+                                <h3><a href="{{vids.Video_url}}">{{vids.Video_title}}</a></h3>
                             </div>
                         </div>
                     </div>

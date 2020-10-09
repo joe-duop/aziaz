@@ -7,20 +7,21 @@ from music.models import Image
 
 # Create your views here.
 def home(request):
-	videos = Video.objects.all()
-	mixtape = Mixtape.objects.all()
-	return render(request, 'home.html', {'mixtape':mixtape, 'videos':videos})
+	videos = Video.objects.order_by('-Video_date_uploaded')[:4]
+	mixtape = Mixtape.objects.order_by('-mixtape_date_uploaded')[:3]
+	theAlbum = Album.objects.order_by('-date_uploaded')[:2]
+	return render(request, 'home.html', {'mixtape':mixtape, 'videos':videos, 'theAlbum':theAlbum})
 
 
 
 def mixtapes(request):
-	mixtape = Mixtape.objects.all()
+	mixtape = Mixtape.objects.order_by('-mixtape_date_uploaded')
 	return render(request, 'mixtapes.html', {'mixtape':mixtape})
 
 
 
 def albums(request):
-	theAlbum = Album.objects.all()
+	theAlbum = Album.objects.order_by('-date_uploaded')
 	return render(request, 'albums.html', {'theAlbum':theAlbum})
 
 
@@ -30,7 +31,7 @@ def album_details(request, album_id):
 
 
 def videos(request):
-	videos = Video.objects.all()
+	videos = Video.objects.order_by('-Video_date_uploaded')
 	return render(request, 'videos.html', {'videos':videos})
 
 

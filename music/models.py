@@ -40,6 +40,7 @@ class Video(models.Model):
     Video_artist = models.CharField(max_length=250)
     Video_url = models.URLField()
     Video_logo = models.ImageField(upload_to='Video_images')
+    Video_date_uploaded = models.DateField()
 
     def __str__(self):
         return self.Video_title
